@@ -21,7 +21,10 @@ export const createEventValidation = z.object({
       },
     ),
   totalCapacity: z.number().min(1, "Total capacity is required"),
-  remainingTickets: z.number().min(1, "Remaining tickets is required"),
+  remainingTickets: z
+    .number()
+    .min(1, "Remaining tickets is required")
+    .optional(),
 });
 
 export const createUserValidation = z.object({

@@ -34,7 +34,7 @@ const createEvent = async (req: Request, res: Response) => {
         description: validationResult.data.description,
         date: new Date(validationResult.data.date),
         total_capacity: validationResult.data.totalCapacity,
-        remaining_tickets: validationResult.data.remainingTickets,
+        remaining_tickets: validationResult.data.totalCapacity,
       },
     });
     res.status(201).json(successResponse(event));

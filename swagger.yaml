@@ -54,7 +54,7 @@ paths:
               required:
                 - title
                 - date
-                - total_capacity
+                - totalCapacity
               properties:
                 title:
                   type: string
@@ -63,7 +63,7 @@ paths:
                 date:
                   type: string
                   format: date-time
-                total_capacity:
+                totalCapacity:
                   type: integer
       responses:
         201:
