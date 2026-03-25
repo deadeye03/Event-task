@@ -12,7 +12,7 @@ const createBooking = async (req: Request, res: Response) => {
     return;
   }
   try {
-    await db.$transaction(async (tx) => {
+    await db.$transaction(async (tx: any) => {
       const event = await tx.event.findUnique({
         where: { id: validationResult.data.eventId },
       });
