@@ -1,3 +1,7 @@
+# Live Application
+
+[(https://event-task.onrender.com/api-docs)]
+
 # Mini Event Management System (Backend)
 
 A RESTful backend for managing events and ticket bookings, built with Node.js, Express, Prisma, and MySQL.

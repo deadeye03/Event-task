@@ -109,7 +109,7 @@ paths:
           description: User bookings
 
   /events/{id}/attendance:
-    post:
+    get:
       summary: Check attendance by booking code
       parameters:
         - name: id
