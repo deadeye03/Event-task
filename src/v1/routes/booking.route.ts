@@ -9,8 +9,8 @@ import {
 const bookingRouter = Router();
 
 bookingRouter.post("/", createBooking);
-bookingRouter.get("/user/:userId/bookings", getUserBookings);
-bookingRouter.get("/event/:bookingCode/attendance", getEventBookings);
+bookingRouter.get("/users/:userId/bookings", getUserBookings);
+bookingRouter.get("/events/:bookingCode/attendance", getEventBookings);
 bookingRouter.delete("/:bookingId", deleteBooking);
 
 export default bookingRouter;

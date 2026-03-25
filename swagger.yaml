@@ -95,7 +95,7 @@ paths:
         400:
           description: Error
 
-  /user/{id}/bookings:
+  /users/{id}/bookings:
     get:
       summary: Get user bookings
       parameters:
