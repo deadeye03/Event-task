@@ -1,0 +1,135 @@
+openapi: 3.0.0
+info:
+  title: Event Booking API
+  description: Mini Event Management System API
+  version: 1.0.0
+
+servers:
+  - url: https://api.example.com/api/v1
+    description: Production server
+  - url: http://localhost:8000/api/v1
+    description: Local development server
+
+paths:
+  /users:
+    get:
+      summary: Get all users
+      responses:
+        200:
+          description: List of users
+    post:
+      summary: Create a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - email
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+      responses:
+        201:
+          description: User created
+  /events:
+    get:
+      summary: Get all upcoming events
+      responses:
+        200:
+          description: List of events
+
+    post:
+      summary: Create a new event
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - title
+                - date
+                - total_capacity
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                date:
+                  type: string
+                  format: date-time
+                total_capacity:
+                  type: integer
+      responses:
+        201:
+          description: Event created
+
+  /bookings:
+    post:
+      summary: Book tickets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - userId
+                - eventId
+                - numberOfTickets
+              properties:
+                userId:
+                  type: integer
+                eventId:
+                  type: integer
+                numberOfTickets:
+                  type: integer
+      responses:
+        200:
+          description: Booking successful
+        400:
+          description: Error
+
+  /users/{id}/bookings:
+    get:
+      summary: Get user bookings
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: User bookings
+
+  /events/{id}/attendance:
+    post:
+      summary: Check attendance by booking code
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - bookingCode
+              properties:
+                bookingCode:
+                  type: string
+      responses:
+        200:
+          description: Attendance verified
+        404:
+          description: Invalid booking code
