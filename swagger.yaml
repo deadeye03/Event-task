@@ -95,7 +95,7 @@ paths:
         400:
           description: Error
 
-  /users/{id}/bookings:
+  /user/{id}/bookings:
     get:
       summary: Get user bookings
       parameters:
@@ -116,18 +116,7 @@ paths:
           in: path
           required: true
           schema:
-            type: integer
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - bookingCode
-              properties:
-                bookingCode:
-                  type: string
+            type: string
       responses:
         200:
           description: Attendance verified
